@@ -38,7 +38,10 @@ install:
     - platformio update
 
 script:
+    # First attempt to compile main FW
     - platformio run
+    # Then run unit tests
+    - platformio test -e native
 
 
 #

@@ -14,4 +14,7 @@
 #define PIN4 0b010000
 #define PIN5 0b100000
 
-#define TOGGLE_PIN(pin, port_val) ()
+/**
+ * Toggles a pin bit in the given port.
+ */
+#define TOGGLE_PORT_PIN(port_val, pin) (port_val ^ pin)
