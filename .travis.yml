@@ -39,7 +39,7 @@ install:
 
 script:
     # First attempt to compile main FW
-    - platformio run
+    - platformio run -e attiny85
     # Then run unit tests
     - platformio test -e native
 
