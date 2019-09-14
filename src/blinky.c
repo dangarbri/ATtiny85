@@ -4,8 +4,7 @@
 
 int main(void)
 {
-    DDRB |= PIN0;  // set PIN 0 as an output
-    PORTB |= PIN0; // set PIN 0 output HIGH
+    DDRB |= 1;  // set PIN 0 as an output
 
     while (1) {
         _delay_ms(500);
