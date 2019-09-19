@@ -6,30 +6,22 @@
 #include "uart.h"
 #include "my_attiny85.h"
 
+/**
+ * Baud error needed to make UART work
+ */
 #define PIN4_UART_ERROR (-8)
+#define BAUD_RATE 9600
+#define UART_PIN 4
 
 int main()
 {
-    DDRB = 0xFF;
-    // PORTB = 0xFF;
-    // char number[4];
-    // UART_Initialize(4, 9600, PIN4_UART_ERROR);
+    UART_Initialize(UART_PIN, BAUD_RATE, PIN4_UART_ERROR);
 
     // UART_Calibrate(4, 9600);
 
     while (1)
     {
       _delay_ms(1000);
-      // // Calibrate UART
-      // UART_Print("Error is: ");
-      // itoa(error, number, 10);
-      // UART_Print(number);
-      // UART_Print("\r\n");
-      // UART_Print("Hello World\r\n");
-
-      // error++;
-
-      // UART_Print("Hello World!\r\n");
-      // UART_SendByte('A');
+      UART_Print("Hello World\r\n");
     }
 }

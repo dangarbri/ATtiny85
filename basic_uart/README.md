@@ -1,8 +1,5 @@
-# ATtiny85Blinky
+# Software UART
 
-[![Build Status](https://travis-ci.com/dangarbri/ATtiny85Blinky.svg?branch=master)](https://travis-ci.com/dangarbri/ATtiny85Blinky)
+Simple software uart implementation to toggle a pin in a timely manner.
 
-Simple project for attiny85
-
-For getting familiar with the platformio workflow
-and basic AVR programming
+For debugging view a UART to USB-Serial component

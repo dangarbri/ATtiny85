@@ -2,6 +2,7 @@
 #include <util/delay.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <avr/interrupt.h>
 #include "common_ops.h"
 
 /**
@@ -24,6 +25,9 @@ void UART_SendByte(uint8_t byte)
 {
     register uint8_t pin = s_pin;
     register uint16_t delay = s_delay;
+
+    cli(); // disable interrupts for time sensitive routine
+
     // Set pin low to initiate transfer
     SET_LOW(PORTB, pin);
 
@@ -40,6 +44,9 @@ void UART_SendByte(uint8_t byte)
     SET_HIGH(PORTB, pin);
 
     _delay_loop_2(delay);
+
+    // re-enable interrupts
+    sei();
 }
 
 /**
@@ -51,7 +58,7 @@ void UART_SendByte(uint8_t byte)
 void UART_Initialize(uint8_t pin, uint32_t baud, int8_t error)
 {
     // Set pin as output pin
-    // SET_BIT(DDRB, s_pin, 1);
+    SET_BIT(DDRB, pin, 1);
 
     // ATTiny85 only has PORTB, so we don't need
     // to specify anymore than the pin
